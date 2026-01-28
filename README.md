@@ -49,10 +49,6 @@ DevTask-Tracker/
 └── README.md
 
 
-> ⚠️ El archivo `.env` no se incluye en el repositorio por motivos de seguridad.
-
----
-
 ## ▶️ Puesta en marcha del proyecto
 
 ### Requisitos previos
