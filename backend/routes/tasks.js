@@ -32,10 +32,29 @@ router.post("/", async function (req, res) {
 // DELETE /api/tasks/:id
 router.delete("/:id", async function (req, res) {
     try {
-        await Task.findByIdAndDelete(req.params.id);
+        const t = await Task.findByIdAndDelete(req.params.id);
+        if (!t) return res.status(404).json({ error: "Tarea no encontrada" });
         res.status(200).json({ message: "Tarea eliminada" });
     } catch (error) {
         res.status(500).json({ error: "Error al eliminar tarea" });
+    }
+});
+
+// PUT /api/tasks/:id (RA3 Compatibility)
+router.put("/:id", async function (req, res) {
+    try {
+        const taskActualizada = await Task.findByIdAndUpdate(
+            req.params.id,
+            {
+                titulo: req.body.titulo,
+                estado: req.body.estado
+            },
+            { new: true }
+        );
+        if (!taskActualizada) return res.status(404).json({ error: "Tarea no encontrada" });
+        res.status(200).json(taskActualizada);
+    } catch (error) {
+        res.status(500).json({ error: "Error al actualizar tarea" });
     }
 });
 

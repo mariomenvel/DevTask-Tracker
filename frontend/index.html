@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTask Tracker | Ingeniería de Software</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>DevTask Tracker</h1>
+        <p class="subtitle">Gestión de Tareas FullStack (Vanilla JS/Express/MongoDB)</p>
+
+        <section class="glass-card">
+            <form id="task-form" class="input-group">
+                <input type="text" id="task-title" placeholder="Nueva tarea de ingeniería..." required>
+                <button type="submit">Añadir</button>
+            </form>
+
+            <div id="loading" class="hidden">Conectando con el servidor...</div>
+
+            <ul id="task-list" class="task-list">
+                <!-- Las tareas se cargarán aquí dinámicamente -->
+            </ul>
+        </section>
+
+        <footer>
+            <p>Ingeniería de Software 2026 - RA1, RA2, RA3, RA4</p>
+        </footer>
+    </div>
+
+    <!-- Modal para editar (RA3 Update) -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <h2>Editar Tarea</h2>
+            <input type="text" id="edit-title">
+            <div class="modal-actions">
+                <button id="save-edit">Guardar</button>
+                <button id="cancel-edit" class="secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
